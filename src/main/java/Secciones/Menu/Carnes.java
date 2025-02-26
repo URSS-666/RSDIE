@@ -12,6 +12,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import com.Vista.secciones.facturaPanel;
 import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  *
@@ -38,6 +41,10 @@ public class Carnes extends javax.swing.JPanel {
         addActionListenerToButton(BotonTernera);
         addActionListenerToButton(BotonCerdo);
         addActionListenerToButton(BotonCordero);
+        addHoverEffectToButton(BotonTernera);
+        addHoverEffectToButton(BotonCerdo);
+        addHoverEffectToButton(BotonCordero);
+        addHoverEffectToButton(BotonCarnesMixtas);
     }
 
     private void addActionListenerToButton(JButton button) {
@@ -69,10 +76,19 @@ public class Carnes extends javax.swing.JPanel {
         PanelCubierta.revalidate();
     }
 
+    private void addHoverEffectToButton(JButton button) {
+        button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                button.setBackground(Color.LIGHT_GRAY);
+            }
 
-
-
-
+            @Override
+            public void mouseExited(MouseEvent e) {
+                button.setBackground(Color.WHITE);
+            }
+        });
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -144,7 +160,7 @@ public class Carnes extends javax.swing.JPanel {
         jButton11 = new javax.swing.JButton();
 
         Buttons_Carnes.setBackground(new java.awt.Color(204, 204, 204));
-        Buttons_Carnes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Buttons_Carnes.setLayout(new GridLayout(2, 3, 10, 10));
 
         BotonTernera.setBackground(new java.awt.Color(255, 255, 255));
         BotonTernera.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -157,7 +173,7 @@ public class Carnes extends javax.swing.JPanel {
                 BotonTerneraActionPerformed(evt);
             }
         });
-        Buttons_Carnes.add(BotonTernera, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 173, 280));
+        Buttons_Carnes.add(BotonTernera);
 
         BotonCerdo.setBackground(new java.awt.Color(255, 255, 255));
         BotonCerdo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -170,7 +186,7 @@ public class Carnes extends javax.swing.JPanel {
                 BotonCerdoActionPerformed(evt);
             }
         });
-        Buttons_Carnes.add(BotonCerdo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 173, 280));
+        Buttons_Carnes.add(BotonCerdo);
 
         BotonCordero.setBackground(new java.awt.Color(255, 255, 255));
         BotonCordero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -183,7 +199,7 @@ public class Carnes extends javax.swing.JPanel {
                 BotonCorderoActionPerformed(evt);
             }
         });
-        Buttons_Carnes.add(BotonCordero, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 173, 280));
+        Buttons_Carnes.add(BotonCordero);
 
         BotonCarnesMixtas.setBackground(new java.awt.Color(255, 255, 255));
         BotonCarnesMixtas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -196,7 +212,7 @@ public class Carnes extends javax.swing.JPanel {
                 BotonCarnesMixtasActionPerformed(evt);
             }
         });
-        Buttons_Carnes.add(BotonCarnesMixtas, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, 175, 280));
+        Buttons_Carnes.add(BotonCarnesMixtas);
 
         BotonTricarne.setBackground(new java.awt.Color(255, 255, 255));
         BotonTricarne.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -209,7 +225,7 @@ public class Carnes extends javax.swing.JPanel {
                 BotonTricarneActionPerformed(evt);
             }
         });
-        Buttons_Carnes.add(BotonTricarne, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 173, 280));
+        Buttons_Carnes.add(BotonTricarne);
 
         jScrollPane2.setViewportView(Buttons_Carnes);
 
